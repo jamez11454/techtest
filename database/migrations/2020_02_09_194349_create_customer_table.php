@@ -13,28 +13,28 @@ class CreateCustomerTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('First_Name');
-            $table->string('Last_Name');
-            $table->string('Company');
-            $table->text('Profession');
-            $table->string('Chapter_Name');
-            $table->string('Phone_Number');
-            $table->string('Alt_Phone_Number');
-            $table->string('Fax_Number');
-            $table->string('Cell_Number');
-            $table->string('Email');
-            $table->string('Website');
-            $table->string('Address');
-            $table->string('City');
-            $table->string('State');
-            $table->string('ZIP');
-            $table->string('Substitute');
-            $table->boolean('Status');
-            $table->time('Join_Date');
-            $table->time('Renewal_Date');
-            $table->string('Sponsor');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('company');
+            $table->text('profession');
+            $table->string('chapter_name');
+            $table->string('phone_number');
+            $table->string('alt_phone_number')->default('');
+            $table->string('fax_number')->default('');
+            $table->string('cell_number')->default('');
+            $table->string('email')->default('');
+            $table->string('website')->default('');
+            $table->string('address')->default('');
+            $table->string('city')->default('');
+            $table->string('state')->default('')->nullable();
+            $table->string('zip')->default('');
+            $table->string('substitute')->default('')->nullable();
+            $table->string('status')->default('active');
+            $table->date('join_date');
+            $table->date('renewal_date');
+            $table->string('sponsor')->default('')->nullable();
             $table->timestamps();
         });
     }

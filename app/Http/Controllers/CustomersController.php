@@ -16,15 +16,13 @@ class CustomersController extends Controller
     {
         $customers = Customer::paginate(18);
 
-        return $customers;
 
-    	// return view('customers.index', ['customers' => $customers]);
+    	return view('customers.index', ['customers' => $customers]);
     }
 
     public function show($id)
     {
         $customer = Customer::find($id);
-        // return $customer;
 
         return view('customers.show', ['customer' => $customer]);
     }

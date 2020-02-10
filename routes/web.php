@@ -20,4 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/customers', 'CustomersController@index')->name('customers');
+Route::get('/customers/import', 'ImportController@importView');
+Route::post('/customers/import', 'ImportController@import')->name('import');
 Route::get('/customers/{customer}', 'CustomersController@show');
+
